@@ -1,0 +1,73 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathabx}
+\usepackage{mathpazo}
+\usepackage{eulervm}
+\usepackage[mmddyy]{datetime}
+\usepackage{hyperref}
+
+\usetheme{Dresden}
+\usefonttheme{serif}
+\usecolortheme{rose}
+
+
+\title{OSDEV-102: Environment Setup}
+\author{Levente Kurusa}
+\institute{lkurusa@acm.org}
+\date{Last modified: \today}
+
+\begin{document}
+\maketitle
+
+\begin{frame}{Requirements}
+  \begin{itemize}
+		\item Preferrably a Linux system
+		\item gcc
+		\item nasm x86-32 assembler
+		\item a text editor of your choice
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Getting the tools}
+  \begin{itemize}
+		\item \texttt{\# apt-get install gcc make git qemu}
+		\item \texttt{\# dnf install gcc make git qemu-system-i386}
+  \end{itemize}
+  We need \texttt{gcc} for compiling stuff, \texttt{make} for making that easy,
+  \texttt{git} for souce code control and \texttt{qemu} to avoid damaging your own
+  computer.
+\end{frame}
+
+\begin{frame}{git}
+  If you are not familiar with git, please refer to this website: \\
+  http://try.github.io/
+\end{frame}
+
+\begin{frame}{Repository}
+  The course has a central repository where all checkpoints have the code in case you
+  get stuck.
+  \begin{itemize}
+          \item https://github.com/levex/osdev-course
+  \end{itemize}
+  Please clone this repository. If you have successfully cloned it, that means your git
+  is working!
+\end{frame}
+
+\begin{frame}{nasm and qemu}
+  \texttt{nasm} is our i386 assembler (more on this later) of our choice. \\
+  In the repo, you will find \texttt{tests/nasm/01.S}. Run the following commands: \\
+  \texttt{\$ nasm tests/nasm/01.S -o test\_out.img} \\
+  \texttt{\$ qemu-system-i386 -fda test\_out.img} \\
+  If you see a screen popup full black, with a text saying "It worked", then you are
+  good to go!
+\end{frame}
+
+\begin{frame}{Troubleshooting}
+  \begin{itemize}
+		\item Check whether \texttt{nasm}, \texttt{git} can be run by themselves.
+		\item If yes, you are most likely missing the repository or are in the wrong working directory.
+		\item Otherwise you need to reinstall them using your package manager.
+  \end{itemize}
+\end{frame}
+\end{document}

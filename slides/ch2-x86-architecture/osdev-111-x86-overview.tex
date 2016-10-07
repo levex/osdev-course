@@ -1,0 +1,68 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathabx}
+\usepackage{mathpazo}
+\usepackage{eulervm}
+\usepackage[mmddyy]{datetime}
+
+\usetheme{Dresden}
+\usefonttheme{serif}
+\usecolortheme{rose}
+
+
+\title{OSDEV-111: x86 Architecture overview}
+\author{Levente Kurusa}
+\institute{lkurusa@acm.org}
+\date{Last modified: \today}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Overview}
+We will write our operating system for i386 architecture
+\begin{itemize}
+    \item Multiple "processor modes" ranging from 16 bit to 64 bit.
+    \item CISC architecture
+    \item Limited set of registers that overlap
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Real mode}
+The mode the CPU starts in.
+\begin{itemize}
+    \item 16-bit
+    \item Ability to use the BIOS to access the devices
+    \item Segmented memory layout (more on this later)
+    \item Registers available:
+    % TODO insert image on register
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Protected mode}
+The mode we will use for our kernel!
+\begin{itemize}
+    \item 32-bit mode
+    \item No BIOS calls (albeit it's possible to circumvent this)
+    \item Flat memory layout with protection and paging!
+    \item Registers available:
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Long mode}
+We will not use this mode, because it adds extra complexity
+\begin{itemize}
+    \item 64-bit mode
+    \item Flat memory layout with \textbf{required} paging and protection.
+    \item Absolutely no BIOS calls
+    \item Registers available:
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+It is always possible to switch from one mode to another.
+\end{frame}
+
+\end{document}
+
