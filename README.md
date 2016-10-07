@@ -1,2 +1,2 @@
-# osdev-course
-OSDev Course materials for Udemy
+# Operating System Development Course Materials
+Slides, tutorials, etc.
